@@ -1,9 +1,10 @@
 package com.mev.mevapi.model;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import com.sun.istack.internal.NotNull;
 import lombok.Getter;
 import lombok.Setter;
+
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter

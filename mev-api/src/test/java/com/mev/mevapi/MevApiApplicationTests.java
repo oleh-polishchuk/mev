@@ -52,6 +52,21 @@ public class MevApiApplicationTests {
     }
 
     @Test
+    public void createMongoQueryResponseWithEmptyParams() throws ParseException {
+        // Given
+        String collection = "";
+        Document query = new Document();
+        Document projection = new Document();
+        Document sort = new Document();
+
+        // When
+        Map<String, Object> map = queryConverterService.createMongoQueryResponse(collection, query, projection, sort);
+
+        // Then
+        assertEquals("{query=Document{{}}, collection=, projection=Document{{}}, sort=Document{{}}}", map.toString());
+    }
+
+    @Test
     public void getMongoQuery() throws Exception {
         // When
         Map<String, Object> map = queryConverterService.getMongoQuery(query.getSql());
@@ -61,5 +76,14 @@ public class MevApiApplicationTests {
                 "collection=users, " +
                 "projection=Document{{}}, " +
                 "sort=Document{{}}}", map.toString());
+    }
+
+    @Test(expected = ParseException.class)
+    public void getMongoQueryWithEmptyQuery() throws Exception {
+        // Given
+        String sql = "";
+
+        // When
+        Map<String, Object> map = queryConverterService.getMongoQuery(sql);
     }
 }

@@ -21,6 +21,7 @@ public class QueryConverterService {
         Document projection = mongoDBQueryHolder.getProjection();
         Document sort = mongoDBQueryHolder.getSort();
 
+        log.info("Query " + sql + " is successfully converted.");
         return createMongoQueryResponse(collection, query, projection, sort);
     }
 
@@ -30,8 +31,6 @@ public class QueryConverterService {
         map.put("query", query);
         map.put("projection", projection);
         map.put("sort", sort);
-
-        System.out.println(map.toString());
 
         return map;
     }
