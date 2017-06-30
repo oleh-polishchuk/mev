@@ -1,0 +1,6 @@
+{
+  "error.400": "Bad request.",
+  "error.403": "Access forbidden. User has not enough rights to get access to the requested page.",
+  "error.404": "We were unable to find a page you're looking on. Please check the URL and try again.",
+  "error.500": "The server encountered an internal error."
+}
