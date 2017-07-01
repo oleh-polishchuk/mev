@@ -6,19 +6,19 @@ exports.init = (app) => {
 
     app.post('/api/getMongoData', (req, res) => {
 
-        ResponseService.api.validate.params(req.query, ['host', 'db', 'sql'], (err) => {
+        ResponseService.api.validate.params(req.body, ['host', 'db', 'sql'], (err) => {
             if (err) {
                 console.warn(err);
                 return ResponseService.e400(req, res);
             }
 
-            MongoDBService.getConnection(req.query.host, req.query.db, (err, db) => {
+            MongoDBService.getConnection(req.body.host, req.body.db, (err, db) => {
                 if (err) {
-                    console.error('Unable to get connection to host: ' + req.query.host, err);
+                    console.error('Unable to get connection to host: ' + req.body.host, err);
                     return ResponseService.api.error(res, 500, err.toString());
                 }
 
-                ExternalQueryService.getMongoQuery(req.query.sql, (err, data) => {
+                ExternalQueryService.getMongoQuery(req.body.sql, (err, data) => {
                     if (err) {
                         console.error(err);
                         return ResponseService.api.error(res, 500, err.toString());
