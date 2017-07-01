@@ -24,7 +24,7 @@
         function setExample() {
             vm.application.host = "127.0.0.1:27017";
             vm.application.db = "codaline";
-            vm.application.sql = "select * from users where username like 'oleg'";
+            vm.application.sql = "select * from users where address.building like '351' sort by asc skip 5 limit 5";
         }
 
         function submit() {
@@ -32,8 +32,10 @@
                 vm.form.loading = false;
                 if (res.success) {
                     vm.application.result = res.data;
+                    vm.application.count = vm.application.result.length;
                 } else {
                     vm.application.result = res.error.message;
+                    vm.application.count = 0;
                 }
             };
 

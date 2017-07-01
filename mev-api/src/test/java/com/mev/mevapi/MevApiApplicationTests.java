@@ -12,6 +12,8 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
@@ -40,12 +42,16 @@ public class MevApiApplicationTests {
         Document query = mongoDBQueryHolder.getQuery();
         Document projection = mongoDBQueryHolder.getProjection();
         Document sort = mongoDBQueryHolder.getSort();
+        Long limit = mongoDBQueryHolder.getLimit();
+        List<String> groupBys = mongoDBQueryHolder.getGroupBys();
 
         // When
-        Map<String, Object> map = queryConverterService.createMongoQueryResponse(collection, query, projection, sort);
+        Map<String, Object> map = queryConverterService.createMongoQueryResponse(collection, query, projection, sort, limit, groupBys);
 
         // Then
-        assertEquals("{query=Document{{name=Document{{$regex=^john$}}}}, " +
+        assertEquals("{groupBys=[], " +
+                "query=Document{{name=Document{{$regex=^john$}}}}, " +
+                "limit=-1, " +
                 "collection=users, " +
                 "projection=Document{{_id=0, name=1}}, " +
                 "sort=Document{{}}}", map.toString());
@@ -58,12 +64,19 @@ public class MevApiApplicationTests {
         Document query = new Document();
         Document projection = new Document();
         Document sort = new Document();
+        Long limit = (long) 0;
+        List<String> groupBys = new ArrayList<>();
 
         // When
-        Map<String, Object> map = queryConverterService.createMongoQueryResponse(collection, query, projection, sort);
+        Map<String, Object> map = queryConverterService.createMongoQueryResponse(collection, query, projection, sort, limit, groupBys);
 
         // Then
-        assertEquals("{query=Document{{}}, collection=, projection=Document{{}}, sort=Document{{}}}", map.toString());
+        assertEquals("{groupBys=[], " +
+                "query=Document{{}}, " +
+                "limit=0, " +
+                "collection=, " +
+                "projection=Document{{}}, " +
+                "sort=Document{{}}}", map.toString());
     }
 
     @Test
@@ -72,7 +85,9 @@ public class MevApiApplicationTests {
         Map<String, Object> map = queryConverterService.getMongoQuery(query.getSql());
 
         // Then
-        assertEquals("{query=Document{{}}, " +
+        assertEquals("{groupBys=[], " +
+                "query=Document{{}}, " +
+                "limit=-1, " +
                 "collection=users, " +
                 "projection=Document{{}}, " +
                 "sort=Document{{}}}", map.toString());
