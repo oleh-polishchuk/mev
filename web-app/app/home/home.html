@@ -1,0 +1,37 @@
+<div class="application">
+
+    <h1>Welcome to SQL Client for MongoDB</h1>
+    <p>The main feature of the client is that you can write queries in it as declarative SQL, instead of the standard
+        mongo syntax.</p>
+    <hr>
+
+    <section class="application__test-btn">
+        <p>* Hint! Click this button to get example of config.</p>
+        <button type="button" class="btn btn-default" ng-click="vm.setExample()">Set testing data</button>
+    </section>
+
+    <section class="application_form">
+        <form name="vm.form" ng-submit="vm.submit()">
+            <div class="form-group">
+                <label for="host">MongoDB Host:</label>
+                <input type="text" class="form-control" id="host" ng-model="vm.application.host" placeholder="ex. localhost:27017">
+            </div>
+            <div class="form-group">
+                <label for="db">MongoDB Database:</label>
+                <input type="text" class="form-control" id="db" ng-model="vm.application.db" placeholder="ex. codaline">
+            </div>
+            <div class="form-group">
+                <label for="sql">MySQL Query:</label>
+                <input type="text" class="form-control" id="sql" ng-model="vm.application.sql" placeholder="ex. select * from users where name like 'oleg'">
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="button" class="btn btn-default" ng-click="vm.reset()">Reset</button>
+        </form>
+        <hr>
+    </section>
+
+    <section class="application_result">
+        <pre>{{ vm.application.result | json }}</pre>
+    </section>
+
+</div>

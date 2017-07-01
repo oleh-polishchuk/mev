@@ -1,0 +1,14 @@
+# Files
+*.iml
+app/static/css/app.css
+*.lock
+package-lock.json
+
+# Foulders
+.idea/
+node_modules/
+bower_components/
+**/vendor/
+
+# Files
+app/index.html
