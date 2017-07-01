@@ -22,7 +22,7 @@
         };
 
         // GET DATA FROM MONGO
-        endpoints.REGISTRATION_CITIES = endpoints.API + '/mongo';
+        endpoints.MONGODB = endpoints.API + '/mongodb';
 
         return endpoints;
     }

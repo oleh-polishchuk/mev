@@ -6,7 +6,7 @@
         .module('app')
         .controller('HomeController', HomeController);
 
-    function HomeController($log, $http) {
+    function HomeController($log, $http, $routeSegment, MongodbFactory) {
         const vm = this;
 
         vm.application = {};
@@ -22,31 +22,27 @@
         }
 
         function setExample() {
-            vm.application.host = "localhost:27017";
+            vm.application.host = "127.0.0.1:27017";
             vm.application.db = "codaline";
-            vm.application.sql = "select * from users where name like 'oleg'";
+            vm.application.sql = "select * from users where username like 'oleg'";
         }
 
         function submit() {
-            let request = {
-                url: '/api/getMongoData',
-                method: 'POST',
-                data: vm.application
-            };
-
             let response = function (res) {
-                if (res.data.success) {
-                    vm.application.result = res.data.data;
+                vm.form.loading = false;
+                if (res.success) {
+                    vm.application.result = res.data;
                 } else {
-                    vm.application.result = res.data.error.message;
+                    vm.application.result = res.error.message;
                 }
             };
 
-            $http(request).then(response);
+            vm.form.loading = true;
+            MongodbFactory.getJson(vm.application).$promise.then(response);
         }
 
         function reset() {
-            vm.application = {};
+            $routeSegment.chain[$routeSegment.chain.length - 1].reload();
         }
     }
 

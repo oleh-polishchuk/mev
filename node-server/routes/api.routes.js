@@ -4,7 +4,7 @@ const ExternalQueryService = require('../services/external.query.service'),
 
 exports.init = (app) => {
 
-    app.post('/api/getMongoData', (req, res) => {
+    app.post('/api/mongodb/getJson', (req, res) => {
 
         ResponseService.api.validate.params(req.body, ['host', 'db', 'sql'], (err) => {
             if (err) {
@@ -20,6 +20,10 @@ exports.init = (app) => {
 
                 ExternalQueryService.getMongoQuery(req.body.sql, (err, data) => {
                     if (err) {
+                        db.close(() => {
+                            console.log('Successfully disconnected from MongoDB.')
+                        });
+
                         console.error(err);
                         return ResponseService.api.error(res, 500, err.toString());
                     }
