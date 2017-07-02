@@ -1,0 +1,12 @@
+[
+  {
+    "script": "app.js",
+    "name": "node-server-worker",
+    "exec_mode": "fork",
+    "watch": false,
+    "ignore_watch": [
+      "node_modules"
+    ],
+    "args": "['-c' 'conf/ci/config.json' '-p' '3000']"
+  }
+]

@@ -19,6 +19,9 @@ exports.dependencies = function () {
         'bower_components/angular-route-segment/build/angular-route-segment.js',
         'bower_components/angular-growl-v2/build/angular-growl.min.js',
         'bower_components/angular-button-spinner/dist/angular-button-spinner.min.js',
+        'bower_components/angular-clipboard/angular-clipboard.js',
+        'bower_components/angular-bootstrap/ui-bootstrap.min.js',
+        'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
 
         'app/static/js/*.js'
     ];

@@ -6,10 +6,12 @@
         .module('app')
         .controller('HomeController', HomeController);
 
-    function HomeController($log, $http, $routeSegment, MongodbFactory) {
+    function HomeController($log, $routeSegment, MongodbFactory, ModalDialogService) {
         const vm = this;
 
         vm.application = {};
+
+        vm.openIPModalWindow = ModalDialogService.openIPModalWindow;
 
         vm.setExample = setExample;
         vm.submit = submit;

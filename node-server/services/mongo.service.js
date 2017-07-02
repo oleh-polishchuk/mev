@@ -23,7 +23,7 @@ exports.getConnection = (host, database, cb) => {
 
     let db = mongoose.connection;
 
-    console.debug('Try to establish MongoDB connection on "' + url + '" with pool size: ' + poolSize);
+    console.log('Try to establish MongoDB connection on "' + url + '" with pool size: ' + poolSize);
     mongoose.connect(url, options, (err) => {
         if (err) {
             console.error('Error occurred while establishing new MongoDB connection. ' + err);

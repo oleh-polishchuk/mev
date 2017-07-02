@@ -1,0 +1,32 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="vm.close()">&times;</button>
+        <h4 class="modal-title">MongoDB Client</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-xs-12">
+                <!-- Public IP -->
+                <p>
+                    Your public IP: please, visit <a href="http://api.ipify.org/?format=json" target="_blank">http://api.ipify.org/?format=json</a> to get public ip.
+                </p>
+
+                <!-- Local IP -->
+                <p>
+                    Your local IP: <a href="" clipboard supported="true" text="vm.ip.local"
+                                      on-copied="vm.copySuccess()"
+                                      on-error="vm.copyFail(err)">{{vm.ip.local}}</a>
+
+                    <button type="button" class="btn btn-success btn-xs" clipboard supported="true" text="vm.ip.local"
+                            on-copied="vm.copySuccess()"
+                            on-error="vm.copyFail(err)">Copy</button>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-right" ng-click="vm.close()">Close</button>
+    </div>
+</div>

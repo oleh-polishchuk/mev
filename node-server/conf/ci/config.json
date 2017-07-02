@@ -1,0 +1,10 @@
+{
+  "port": "3000",
+
+  "externalQueryServiceUrl": "http://spring:8080",
+
+  "mongo": {
+    "url": "mongodb://192.168.88.231:27017/codaline",
+    "poolSize": 1
+  }
+}
