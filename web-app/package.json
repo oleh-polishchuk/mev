@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "SQL Client for MongoDB [Web app]",
   "scripts": {
-    "postinstall": "bower install --allow-root",
     "vagrant-start": "cd scripts/vagrant/ && vagrant up",
     "vagrant-stop": "cd scripts/vagrant/ && vagrant halt -f",
     "vagrant-reload": "cd scripts/vagrant/ && vagrant reload",

@@ -24,9 +24,13 @@
         }
 
         function setExample() {
-            vm.application.host = "127.0.0.1:27017";
-            vm.application.db = "codaline";
-            vm.application.sql = "select * from users where address.building like '351' sort by asc skip 5 limit 5";
+            let example = {
+                host: "127.0.0.1:27027",
+                db: "test",
+                sql: "select * from restaurants where address.building like '351' sort by asc skip 5 limit 5"
+            };
+
+            vm.application = example;
         }
 
         function submit() {

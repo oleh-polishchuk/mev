@@ -8,7 +8,7 @@ services:
       - "80:80" # specify port forewarding
     stdin_open: true
     tty: true
-    links:
+    depends_on:
       - express
 
   express: #name of the second service
@@ -17,7 +17,7 @@ services:
       - "3000:3000" #specify ports forewarding
     stdin_open: true
     tty: true
-    links:
+    depends_on:
       - spring
 
   spring: # name of the first service
@@ -26,8 +26,19 @@ services:
       - "8080:8080" # specify port forewarding
     stdin_open: true
     tty: true
+    depends_on:
+      - database
 
-#  database: # name of the third service
-#    image: mongo # specify image to build container from
-#    ports:
-#      - "27017:27017" # specify port forewarding
+  database: # name of the third service
+    image: weshigbee/docker-mongo-sample-datasets # specify image to build container from
+    environment:
+      - "MONGO_SERVER=mongo"
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    ports:
+      - "27027:27017" # specify port forewarding
+    stdin_open: true
+    tty: true

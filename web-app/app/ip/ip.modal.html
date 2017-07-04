@@ -7,10 +7,7 @@
     <div class="modal-body">
         <div class="row">
             <div class="col-xs-12">
-                <!-- Public IP -->
-                <p>
-                    Your public IP: please, visit <a href="http://api.ipify.org/?format=json" target="_blank">http://api.ipify.org/?format=json</a> to get public ip.
-                </p>
+                <p>* Hint! If you want to make the request to your test local database, please, use local IP.</p>
 
                 <!-- Local IP -->
                 <p>
@@ -21,6 +18,11 @@
                     <button type="button" class="btn btn-success btn-xs" clipboard supported="true" text="vm.ip.local"
                             on-copied="vm.copySuccess()"
                             on-error="vm.copyFail(err)">Copy</button>
+                </p>
+
+                <!-- Public IP -->
+                <p>
+                    Your public IP: please, visit <a href="http://api.ipify.org/?format=json" target="_blank">http://api.ipify.org/?format=json</a> to get public ip.
                 </p>
             </div>
         </div>

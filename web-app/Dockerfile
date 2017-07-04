@@ -26,11 +26,13 @@ RUN apt-get install -y nginx
 # Install dependecies & nginx
 RUN /bin/bash -c "source ./bootstrap.sh"
 
-# Install dependecies
-RUN npm install
-
 # Get all the code needed to run the app
 COPY . /usr/src/app
+
+# Install dependecies
+RUN npm install
+RUN bower install --allow-root
+RUN gulp
 
 # Expose the port the app runs in
 EXPOSE 80

@@ -34,4 +34,4 @@ COPY . /usr/src/app
 EXPOSE 80
 
 # Serve the app
-ENTRYPOINT pm2 start ./conf/pm2.json && /bin/bash
+ENTRYPOINT pm2 start ./conf/ci/pm2.json && /bin/bash

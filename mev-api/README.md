@@ -2,7 +2,6 @@
 
 This application provides an API that is used by Angular application and helps you build queries for MongoDb based on Queries provided in SQL.
 
-
 ## Technologies
 
 * Java
