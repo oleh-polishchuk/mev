@@ -11,10 +11,9 @@ before_script:
     - 'export DISPLAY=:99.0'
     - 'sh -e /etc/init.d/xvfb start'
     - 'npm install -g bower karma karma-cli grunt-cli jshint'
-    - 'npm install'
 
 script:
-    - 'cd $TEST_DIR && npm install && npm test'
+    - 'cd $TEST_DIR && npm install && bower install && npm test'
 
 branches:
   only:
