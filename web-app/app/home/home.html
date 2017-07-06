@@ -12,7 +12,7 @@
     </section>
 
     <section class="application_form">
-        <form name="vm.form" ng-submit="vm.submit()" novalidate>
+        <form name="vm.form" ng-submit="vm.submit(vm.form)" novalidate>
             <div class="form-group required" ng-class="{ 'has-error' : vm.form.host.$invalid && !vm.form.host.$pristine}">
                 <label for="host" class="control-label">MongoDB Host:</label>
                 <input type="text" class="form-control" id="host" name="host" ng-pattern="/(?:^|\s)([a-z]{3,6}(?=:\/\/))?(:\/\/)?((?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.(?:25[0-5]|2[0-4]\d|[01]?\d\d?))(?::(\d{2,5}))?(?:\s|$)/" placeholder="ex. 127.0.0.1:27017"
@@ -20,12 +20,12 @@
             </div>
             <div class="form-group required" ng-class="{ 'has-error' : vm.form.db.$invalid && !vm.form.db.$pristine}">
                 <label for="db" class="control-label">MongoDB Database:</label>
-                <input type="text" class="form-control" id="db" name="db" placeholder="ex. codaline"
+                <input type="text" class="form-control" id="db" name="db" placeholder="ex. test"
                        ng-model="vm.application.db" ng-required="true">
             </div>
             <div class="form-group required" ng-class="{ 'has-error' : vm.form.sql.$invalid && !vm.form.sql.$pristine}">
                 <label for="sql" class="control-label">MySQL Query:</label>
-                <input type="text" class="form-control" id="sql" name="sql" placeholder="ex. select * from users where username like 'oleg'"
+                <input type="text" class="form-control" id="sql" name="sql" placeholder="ex. select * from restaurants where address.building like '351' sort by asc skip 5 limit 5"
                        ng-model="vm.application.sql" ng-required="true">
             </div>
             <button type="submit" class="btn btn-success"

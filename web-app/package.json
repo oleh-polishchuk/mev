@@ -8,7 +8,10 @@
     "vagrant-reload": "cd scripts/vagrant/ && vagrant reload",
     "vagrant-destroy": "cd scripts/vagrant/ && vagrant destroy -f",
     "vagrant-recreate": "cd scripts/vagrant/ && vagrant destroy -f && vagrant up",
-    "vagrant-connect": "cd scripts/vagrant/ && vagrant ssh"
+    "vagrant-connect": "cd scripts/vagrant/ && vagrant ssh",
+    "test": "karma start tests/karma/karma.conf.js",
+    "selenium-server": "webdriver-manager update && webdriver-manager start",
+    "selenium": "protractor tests/selenium/selenium.conf.js"
   },
   "dependencies": {
     "babel-plugin-transform-runtime": "6.23.0",
@@ -28,9 +31,9 @@
     "gulp-rename": "1.2.2",
     "gulp-sass": "3.1.0",
     "gulp-sourcemaps": "2.6.0",
-    "jasmine-core": "2.5.2",
-    "karma": "1.5.0",
-    "karma-chrome-launcher": "2.0.0",
+    "jasmine-core": "2.6.4",
+    "karma": "1.7.0",
+    "karma-chrome-launcher": "2.2.0",
     "karma-jasmine": "1.1.0",
     "karma-spec-reporter": "0.0.31",
     "protractor": "5.1.2",

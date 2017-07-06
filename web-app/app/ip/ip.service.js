@@ -11,7 +11,6 @@
         .service('IPService', IPService);
 
     function IPService() {
-        const vm = this;
 
         this.getLocalIp = getLocalIp;
 
@@ -48,10 +47,15 @@
 
             function handleCandidate(candidate) {
                 let ip_regex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/;
-                let ip_addr = ip_regex.exec(candidate)[1];
+                let ip_addrs = ip_regex.exec(candidate);
+                let ip_addr;
+                if (Array.isArray(ip_addrs) && ip_addrs.length) {
+                    ip_addr = ip_regex.exec(candidate)[1];
 
-                if (ip_dups[ip_addr] === undefined)
-                    callback(ip_addr);
+                    if (ip_addr && ip_dups[ip_addr] === undefined) {
+                        callback(ip_addr);
+                    }
+                }
 
                 ip_dups[ip_addr] = true;
             }

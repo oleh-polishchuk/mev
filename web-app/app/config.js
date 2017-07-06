@@ -9,9 +9,12 @@
         .module('app')
         .config(config);
 
-    function config($httpProvider, $logProvider, $locationProvider, growlProvider) {
+    function config($httpProvider, $qProvider, $logProvider, $locationProvider, growlProvider) {
         $httpProvider.interceptors.push('ErrorInterceptor');
         $httpProvider.defaults.withCredentials = true;
+
+        // Hide annoying messages about possibly unhandled rejection
+        $qProvider.errorOnUnhandledRejections(false);
 
         // Configure application logs messages
         $logProvider.debugEnabled(true);

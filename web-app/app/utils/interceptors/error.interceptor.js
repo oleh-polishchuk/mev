@@ -13,7 +13,7 @@
     function ErrorInterceptor($q, growl, $location) {
         let checkError = function (response) {
 
-            if (response && (response.status == 502 || response.status == 504)) {
+            if (response && (response.status === 502 || response.status === 504)) {
                 growl.error('Internal server error \n' + response.statusText, {
                     ttl: 7000,
                     disableCountDown: true,

@@ -6,7 +6,6 @@
         .module('app', [
             'ngRoute',
             'ngResource',
-            'ngAnimate',
             'route-segment',
             'view-segment',
             'angular-growl',

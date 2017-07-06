@@ -11,8 +11,7 @@
 
         vm.application = {};
 
-        vm.openIPModalWindow = ModalDialogService.openIPModalWindow;
-
+        vm.openIPModalWindow = openIPModalWindow;
         vm.setExample = setExample;
         vm.submit = submit;
         vm.reset = reset;
@@ -21,6 +20,10 @@
 
         function activate() {
             $log.debug('Init HomeController ...');
+        }
+
+        function openIPModalWindow() {
+            ModalDialogService.openIPModalWindow();
         }
 
         function setExample() {
@@ -33,9 +36,9 @@
             vm.application = example;
         }
 
-        function submit() {
+        function submit(form) {
             let response = function (res) {
-                vm.form.loading = false;
+                form.loading = false;
                 if (res.success) {
                     vm.application.result = res.data;
                     vm.application.count = vm.application.result.length;
@@ -45,12 +48,12 @@
                 }
             };
 
-            vm.form.loading = true;
+            form.loading = true;
             MongodbFactory.getJson(vm.application).$promise.then(response);
         }
 
         function reset() {
-            $routeSegment.chain[$routeSegment.chain.length - 1].reload();
+            $routeSegment.reload();
         }
     }
 
