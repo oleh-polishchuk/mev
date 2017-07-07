@@ -1,4 +1,4 @@
-(() => {
+(function () {
 
     'use strict';
 
@@ -13,7 +13,7 @@
             'angular-clipboard',
             'ui.bootstrap'
         ])
-        .run(['$log', ($log) => {
+        .run(['$log', function ($log) {
             $log.debug('app is running...');
         }]);
 })();
