@@ -16,6 +16,7 @@ gulp.task('app:copy:scripts:application', require('./gulp-tasks/app/copy/scripts
 gulp.task('app:copy:scripts', gulp.parallel('app:copy:scripts:dependencies', 'app:copy:scripts:application'));
 gulp.task('app:copy:styles', require('./gulp-tasks/app/copy/styles'));
 gulp.task('app:update-src-links', require('./gulp-tasks/app/update.src.links'));
+gulp.task('app:travis', require('./gulp-tasks/app/travis'));
 
 // Main task
 gulp.task('build:app', gulp.series(
@@ -35,4 +36,8 @@ gulp.task('build:app', gulp.series(
 
 gulp.task('default', gulp.parallel(
     'build:app'
+));
+
+gulp.task('travis', gulp.parallel(
+    'app:travis'
 ));

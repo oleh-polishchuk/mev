@@ -12,7 +12,7 @@ before_script:
     - 'cd $TEST_DIR'
 
 script:
-    - 'npm install && bower install && npm test'
+    - 'npm install && bower install && gulp travis && npm test'
 
 branches:
   only:
