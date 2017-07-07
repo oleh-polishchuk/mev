@@ -1,7 +1,7 @@
 'use strict';
 
 describe('ErrorInterceptor', function () {
-    let ErrorInterceptor;
+    var ErrorInterceptor;
 
     beforeEach(angular.mock.module('app'));
 

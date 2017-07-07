@@ -1,7 +1,7 @@
 'use strict';
 
 describe('ModalDialogService', function () {
-    let ModalDialogService;
+    var ModalDialogService;
 
     beforeEach(angular.mock.module('app'));
 
