@@ -19,6 +19,8 @@ matrix:
           - feature/travis-ci
 
     - language: java
+      jdk:
+        - oraclejdk8
       env:
           - TEST_DIR=mev-api
           - GRADLE_VERSION=3.3
@@ -33,4 +35,3 @@ matrix:
       branches:
         only:
           - develop
-          
