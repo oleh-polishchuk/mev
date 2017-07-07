@@ -1,14 +1,14 @@
 'use strict';
 
 describe('HomeController', function () {
-    let HomeController;
-    let $scope;
-    let $log;
-    let $routeSegment;
-    let MongodbFactory;
-    let ModalDialogService;
-    let $q;
-    let $httpBackend;
+    var HomeController;
+    var $scope;
+    var $log;
+    var $routeSegment;
+    var MongodbFactory;
+    var ModalDialogService;
+    var $q;
+    var $httpBackend;
 
     beforeEach(angular.mock.module('app'));
 
@@ -53,14 +53,14 @@ describe('HomeController', function () {
         }));
 
         it('should send a request and get success response', (function () {
-            let response = {
+            var response = {
                 success: true,
                 data: []
             };
 
             $httpBackend.expect('POST', '/api/mongodb/getJson').respond(200, response);
 
-            let form = {
+            var form = {
                 loading: false
             };
 
@@ -74,7 +74,7 @@ describe('HomeController', function () {
         }));
 
         it('should send a request and get failure response', (function () {
-            let response = {
+            var response = {
                 success: false,
                 error: {
                     message: 'Internal Server Error'
@@ -83,7 +83,7 @@ describe('HomeController', function () {
 
             $httpBackend.expect('POST', '/api/mongodb/getJson').respond(200, response);
 
-            let form = {
+            var form = {
                 loading: false
             };
 
@@ -104,7 +104,7 @@ describe('HomeController', function () {
         }));
 
         it('should set example of request', (function () {
-            let example = {
+            var example = {
                 host: "127.0.0.1:27027",
                 db: "test",
                 sql: "select * from restaurants where address.building like '351' sort by asc skip 5 limit 5"

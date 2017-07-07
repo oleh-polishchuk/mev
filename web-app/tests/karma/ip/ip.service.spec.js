@@ -1,7 +1,7 @@
 'use strict';
 
 describe('IPService', function () {
-    let IPService;
+    var IPService;
 
     beforeEach(angular.mock.module('app'));
 

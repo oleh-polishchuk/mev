@@ -1,11 +1,11 @@
 'use strict';
 
 describe('IPModalController', function () {
-    let IPModalController;
-    let $scope;
-    let growl;
-    let $uibModalInstance;
-    let IPService;
+    var IPModalController;
+    var $scope;
+    var growl;
+    var $uibModalInstance;
+    var IPService;
 
     beforeEach(angular.mock.module('app'));
 

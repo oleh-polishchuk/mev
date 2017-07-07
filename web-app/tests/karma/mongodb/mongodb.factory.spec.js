@@ -1,8 +1,8 @@
 'use strict';
 
 describe('MongodbFactory', function () {
-    let MongodbFactory;
-    let $q;
+    var MongodbFactory;
+    var $q;
 
     beforeEach(angular.mock.module('app'));
 
@@ -23,7 +23,7 @@ describe('MongodbFactory', function () {
 
 
         it('should return promise', (function () {
-            let deferred = $q.defer();
+            var deferred = $q.defer();
             expect(MongodbFactory.getJson().$promise).toEqual(deferred.promise);
         }));
     });

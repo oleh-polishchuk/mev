@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Constants', function () {
-    let Constants;
+    var Constants;
 
     beforeEach(angular.mock.module('app'));
 
@@ -15,7 +15,7 @@ describe('Constants', function () {
 });
 
 describe('Endpoints', function () {
-    let Endpoints;
+    var Endpoints;
 
     beforeEach(angular.mock.module('app'));
 
