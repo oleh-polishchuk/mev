@@ -31,6 +31,6 @@ dependencies {
     }
     compile('com.github.vincentrussell:sql-to-mongo-db-query-converter:1.0')
     compile('com.esotericsoftware.yamlbeans:yamlbeans:1.11')
-    compileOnly('org.projectlombok:lombok')
+    compile('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
