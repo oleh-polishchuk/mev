@@ -1,0 +1,9 @@
+### IntelliJ IDEA ###
+.idea/
+*.iml
+
+### Folders ###
+.gradle/
+build/
+gradle/
+
