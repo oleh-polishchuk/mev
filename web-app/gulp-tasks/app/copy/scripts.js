@@ -10,17 +10,17 @@ var babel = require('gulp-babel');
 
 exports.dependencies = function () {
     var src = [
-        'bower_components/jquery/dist/jquery.min.js',
-        'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js',
-        'bower_components/angular/angular.min.js',
-        'bower_components/angular-route/angular-route.min.js',
-        'bower_components/angular-resource/angular-resource.min.js',
-        'bower_components/angular-route-segment/build/angular-route-segment.js',
-        'bower_components/angular-growl-v2/build/angular-growl.min.js',
+        'node_modules/jquery/dist/jquery.min.js',
+        'node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js',
+        'node_modules/angular/angular.min.js',
+        'node_modules/angular-route/angular-route.min.js',
+        'node_modules/angular-resource/angular-resource.min.js',
+        'node_modules/angular-route-segment/build/angular-route-segment.js',
+        'node_modules/angular-growl-v2/build/angular-growl.min.js',
+        'node_modules/angular-clipboard/angular-clipboard.js',
+        'node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js',
+        'node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js',
         'bower_components/angular-button-spinner/dist/angular-button-spinner.min.js',
-        'bower_components/angular-clipboard/angular-clipboard.js',
-        'bower_components/angular-bootstrap/ui-bootstrap.min.js',
-        'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
 
         'app/static/js/*.js'
     ];
@@ -41,6 +41,7 @@ exports.application = function () {
         'app/bootstrap.js',
         'app/constants.js',
         'app/config.js',
+        'app/utils/services/modal.dialog.service.js',
         'app/**/*.js',
         '!app/static/vendor/js/*.js'
     ];

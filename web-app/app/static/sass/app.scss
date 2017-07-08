@@ -1,11 +1,11 @@
 /** Bootstrap */
-@import "../../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "../../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 
 /** Font Awesome*/
-@import "../../../bower_components/font-awesome/scss/font-awesome.scss";
+@import "../../../node_modules/font-awesome/scss/font-awesome.scss";
 
 /** Angular Growl Notification v.2 */
-@import "../../../bower_components/angular-growl-v2/build/angular-growl.min";
+@import "../../../node_modules/angular-growl-v2/build/angular-growl.min";
 
 /** App */
 @import "components/general";

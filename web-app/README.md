@@ -1,5 +1,31 @@
-# SQL Client for MongoDB [Web app]
+# SQL Client for MongoDB [web-app]
 
+Angular application that helps you write queries to Mongodb as declarative SQL, instead of the standard mongo syntax.
+
+## Technologies
+
+* Angular 1
+* Gulp
+* Yarn
+
+Getting started
+---------------
+
+Run the next command to download the repository
+
+```
+git clone -b develop https://github.com/oleh-polishchuk/mev.git
+```
+
+1. Download and install NodeJS from [here](https://nodejs.org/en/download/)
+2. Download and install VirtualBox from [here](https://www.virtualbox.org/wiki/Downloads)
+3. Download and install Vagrant from [here](https://www.vagrantup.com/downloads.html)
+3. Download required dependencies:
+
+```
+cd web-app
+npm install && bower install && gulp
+```
 
 ### Running via Vagrant
 

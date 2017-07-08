@@ -6,8 +6,8 @@ var rename = require('gulp-rename');
 
 module.exports = function () {
     var src = [
-        'bower_components/bootstrap/dist/fonts/*.*',
-        'bower_components/font-awesome/fonts/*.*',
+        'node_modules/bootstrap/dist/fonts/*.*',
+        'node_modules/font-awesome/fonts/*.*',
         'app/static/fonts/*.*'
     ];
     var destination = 'app/static/vendor/fonts/.';

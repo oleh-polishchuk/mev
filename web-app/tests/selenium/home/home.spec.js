@@ -1,25 +1,24 @@
-/**
- * Home Page Spec
- *
- * @description End-to-End tests for Home page
- */
+var Endpoints = require('../general/endpoints'),
+    Config = require('../general/config'),
+    Local = require('./home.constants');
 
-var GENERAL = require('../general/general.constant').CONSTANT,
-    LOGIN_PAGE = require('./login.constant').CONSTANT;
+describe('application', function () {
 
-describe('Velocitum Inventory App', function () {
-
-    it('should login admin user', function () {
-        browser.get(LOGIN_PAGE.TARGET_URL);
-
+    it('should run sql', function () {
         // Given
-        element(by.model(LOGIN_PAGE.LOGIN_INPUT)).sendKeys(LOGIN_PAGE.LOGIN_VALUE);
-        element(by.model(LOGIN_PAGE.PASSWORD_INPUT)).sendKeys(LOGIN_PAGE.PASSWORD_VALUE);
+        browser.driver.get(Endpoints.HOME);
+        element(by.buttonText(Local.BUTTONS.RESET)).click();
 
         // When
-        element(by.id(LOGIN_PAGE.SUBMIT_BTN)).submit();
+        element(by.model(Local.APPLICATION.HOST.MODEL)).sendKeys(Local.APPLICATION.HOST.VALUE);
+        element(by.model(Local.APPLICATION.DB.MODEL)).sendKeys(Local.APPLICATION.DB.VALUE);
+        element(by.model(Local.APPLICATION.SQL.MODEL)).sendKeys(Local.APPLICATION.SQL.VALUE);
+        element(by.buttonText(Local.BUTTONS.RUN_SQL)).click();
+        browser.sleep(Config.TIMEOUT.SHORT);
 
         // Then
-        expect(element(by.className(LOGIN_PAGE.USER_NAME)).getText()).toBe(GENERAL.USER_NAME);
-    });
+        element(by.xpath(Local.APPLICATION.RESULT.XPATH)).getText().then(function(value){
+            expect(value).toBe(Local.APPLICATION.RESULT.TOTAL_COUNT);
+        })
+    })
 });
