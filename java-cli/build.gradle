@@ -14,23 +14,22 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1'
 sourceCompatibility = 1.8
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'com.mev.MainWrapper'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
 
 repositories {
     mavenCentral()
 }
 
-configurations {
-    jar.archiveName = 'mev-api-0.0.1-SNAPSHOT.jar'
-}
-
 dependencies {
-    compile('org.springframework.boot:spring-boot-starter-web') {
-        exclude module: 'spring-boot-starter-logging'
-    }
     compile('com.github.vincentrussell:sql-to-mongo-db-query-converter:1.0')
-    compile('com.esotericsoftware.yamlbeans:yamlbeans:1.11')
-    compile('org.projectlombok:lombok')
-    testCompile('org.springframework.boot:spring-boot-starter-test')
 }
