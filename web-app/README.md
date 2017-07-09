@@ -45,6 +45,8 @@ To recreate VM:
 
     npm run vagrant-recreate
 
+##### After application is launched, go to [localhost:9990](http://localhost:9990/) and try it.
+
 ### Running via Docker
 
 To build web-app via Dockerfile:
@@ -65,7 +67,7 @@ docker run -it -p 80:80 web-app:dev
 ```
 docker start [container name]
 ```
-
+##### After application is launched, go to [localhost:80](http://localhost:80/) and try it.
 
 ## Running the tests
 
