@@ -1,0 +1,14 @@
+{
+  "name": "web-app",
+  "homepage": "https://github.com/oleh-polishchuk/mev",
+  "description": "SQL Client for MongoDB [Web app]",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-button-spinner": "0.0.4"
+  }
+}

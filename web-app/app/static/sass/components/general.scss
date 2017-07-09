@@ -1,0 +1,5 @@
+// adding asterisk to required fields
+.form-group.required .control-label:after {
+  content:"*";
+  color:red;
+}
