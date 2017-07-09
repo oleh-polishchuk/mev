@@ -3,7 +3,7 @@ var MESSAGES = require('../i18n/en.json');
 var handleError = function (req, res, error) {
     res.status(error.code);
 
-    if (req.path.indexOf('/api/') == 0) {
+    if (req.path.indexOf('/api/') === 0) {
         exports.api.error(res, error.code, error.message);
     } else {
         res.render('error', error);

@@ -1,6 +1,6 @@
-# SQL Client for MongoDB [Backend app]
+# SQL Client for MongoDB [spring-app]
 
-This application provides an API that is used by Angular application and helps you build queries for MongoDb based on Queries provided in SQL.
+This application provides an API that is used by Node application to convert sql query to mongo query.
 
 ## Technologies
 
@@ -45,6 +45,35 @@ gradlew bootRun
 
 1. Download and extract Gradle from [here](https://services.gradle.org/distributions/gradle-3.4.1-bin.zip). Tell to Intellij Idea where your gradle is located.
 1. Open project from Intellij Idea. Download dependencies using Gradle.
-1. Right click on **Application.java** and select _**Run application**_
+1. Right click on **MevApiApplication.java** and select _**Run application**_
+
+### Running via Docker
+
+To build web-app via Dockerfile:
+
+1. Build an image from Dockerfile
+
+```
+docker build -t spring-server:dev .
+```
+2. Create container from image
+
+```
+docker run -it -p 8080:8080 spring-server:dev
+```
+
+3. Start container
+
+```
+docker start [container name]
+```
 
 ##### After application is launched, go to [localhost:8080](http://localhost:8080/) and try it.
+
+## Running the tests
+
+Use **gradle** to running the tests
+
+```
+gradle test
+```
