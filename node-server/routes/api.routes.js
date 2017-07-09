@@ -43,22 +43,25 @@ exports.init = (app) => {
                     let limit = data.limit;
                     let groupBys = data.groupBys;
 
-                    db.collection(collection).find(query, projection, groupBys).limit(limit).sort(sort).toArray((err, data) => {
-                        db.close(() => {
-                            console.log('Successfully disconnected from MongoDB.');
+                    db.collection(collection)
+                        .find(query, projection, groupBys)
+                        .limit(limit)
+                        .sort(sort)
+                        .toArray((err, data) => {
+                            db.close(() => {
+                                console.log('Successfully disconnected from MongoDB.');
 
-                            if (err) {
-                                console.error('Unable to find', err);
-                                return ResponseService.api.error(res, 500, err.toString());
-                            }
+                                if (err) {
+                                    console.error('Unable to find', err);
+                                    return ResponseService.api.error(res, 500, err.toString());
+                                }
 
-                            ResponseService.api.success(res, data);
+                                ResponseService.api.success(res, data);
+                            });
                         });
-                    });
                 });
             });
         });
     });
 
 };
-

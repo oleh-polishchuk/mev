@@ -1,5 +1,9 @@
+### IDE ###
 .idea/
+
+### Dependency directories ###
 node_modules/
 
-yarn.lock
+### NMP, Yarn ###
 package-lock.json
+yarn.lock

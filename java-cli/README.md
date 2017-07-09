@@ -49,5 +49,5 @@ You can use [-i] or [-sql <arg>] at one time
  -sql,--sql <arg>             the sql select statement
 ```
 
-## Thanks
-[vincentrussell](https://github.com/vincentrussell), for providing the [sql-to-mongo-db-query-converter](https://github.com/vincentrussell/sql-to-mongo-db-query-converter).
+## Acknowledgments
+[vincentrussell](https://github.com/vincentrussell) for providing the [sql-to-mongo-db-query-converter](https://github.com/vincentrussell/sql-to-mongo-db-query-converter).

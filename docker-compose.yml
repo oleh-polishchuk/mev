@@ -1,36 +1,35 @@
-version: '2' # specify docker-compose version
+version: '2'
 
-# Define the services/containers to be run
 services:
-  angular: # name of the third service
-    build: web-app # specify image to build container from
+  angular: 
+    build: web-app 
     ports:
-      - "80:80" # specify port forewarding
+      - "80:80" 
     stdin_open: true
     tty: true
     depends_on:
       - express
 
-  express: #name of the second service
-    build: node-server # specify the directory of the Dockerfile
+  express: 
+    build: node-server 
     ports:
-      - "3000:3000" #specify ports forewarding
+      - "3000:3000" 
     stdin_open: true
     tty: true
     depends_on:
       - spring
 
-  spring: # name of the first service
-    build: mev-api # specify the directory of the Dockerfile
+  spring: 
+    build: mev-api 
     ports:
-      - "8080:8080" # specify port forewarding
+      - "8080:8080" 
     stdin_open: true
     tty: true
     depends_on:
       - database
 
-  database: # name of the third service
-    image: weshigbee/docker-mongo-sample-datasets # specify image to build container from
+  database:
+    image: weshigbee/docker-mongo-sample-datasets 
     environment:
       - "MONGO_SERVER=mongo"
     depends_on:
@@ -39,6 +38,6 @@ services:
   mongo:
     image: mongo
     ports:
-      - "27027:27017" # specify port forewarding
+      - "27027:27017" 
     stdin_open: true
     tty: true
