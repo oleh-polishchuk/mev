@@ -24,6 +24,7 @@ RUN apt-get install -y dos2unix
 RUN apt-get install -y nginx
 
 # Install dependecies & nginx
+RUN dos2unix /usr/src/app/bootstrap.sh
 RUN /bin/bash -c "source ./bootstrap.sh"
 
 # Get all the code needed to run the app

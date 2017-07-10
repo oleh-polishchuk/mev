@@ -22,6 +22,7 @@ RUN apt-get install -y libkrb5-dev
 RUN apt-get install -y dos2unix
 
 # Install dependecies & nginx
+RUN dos2unix /usr/src/app/bootstrap.sh
 RUN /bin/bash -c "source ./bootstrap.sh"
 
 # Install dependecies
