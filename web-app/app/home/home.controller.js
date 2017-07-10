@@ -30,7 +30,10 @@
             let example = {
                 host: "127.0.0.1:27027",
                 db: "test",
-                sql: "select * from restaurants where address.building like '351' sort by asc skip 5 limit 5"
+                sql: "SELECT name, address.building, address.zipcode, borough, grades " +
+                "FROM users WHERE address.zipcode = '10462' OR address.zipcode = '11225' " +
+                "ORDER BY name DESC " +
+                "LIMIT 200"
             };
 
             vm.application = example;

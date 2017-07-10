@@ -17,6 +17,7 @@ exports.init = (app) => {
                     return ResponseService.api.error(res, 500, err.toString());
                 }
 
+                console.log('SQL: ', req.body.sql);
                 ExternalQueryService.getMongoQuery(req.body.sql, (err, data) => {
                     if (err) {
                         db.close(() => {
@@ -40,8 +41,12 @@ exports.init = (app) => {
                     let projection = data.projection;
                     let query = data.query;
                     let sort = data.sort;
-                    let limit = data.limit;
+                    let limit = 0;
                     let groupBys = data.groupBys;
+
+                    if (data.limit && data.limit > 0) {
+                        limit = data.limit;
+                    }
 
                     db.collection(collection)
                         .find(query, projection, groupBys)
