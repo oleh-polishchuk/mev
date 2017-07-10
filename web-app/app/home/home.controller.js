@@ -31,7 +31,7 @@
                 host: "127.0.0.1:27027",
                 db: "test",
                 sql: "SELECT name, address.building, address.zipcode, borough, grades " +
-                "FROM users WHERE address.zipcode = '10462' OR address.zipcode = '11225' " +
+                "FROM restaurants WHERE address.zipcode = '10462' OR address.zipcode = '11225' " +
                 "ORDER BY name DESC " +
                 "LIMIT 200"
             };

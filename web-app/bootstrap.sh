@@ -99,3 +99,4 @@ EOL
 
 # reload configuration
 service nginx reload
+
